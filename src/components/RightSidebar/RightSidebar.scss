@@ -1,0 +1,99 @@
+.right-sidebar {
+  width: 280px;
+  padding: 20px;
+  border-left: 1px solid var(--border-color, #ddd);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  overflow:scroll;
+  color:var(--text);
+  background: var(--bg);
+  height: 100vh;
+  box-sizing: border-box;
+
+  &.closed {
+    display: none;
+    transform: translateX(100%);
+  }
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      gap: 22px;
+     
+      p{
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .section-items {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .notification-item,
+        .activity-item,
+        .contact-item {
+          display: flex;
+          gap: 12px;
+
+          .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .notification-text,
+          .activity-text {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            flex-direction: column;
+            text-overflow: ellipsis;
+            gap: 4px;
+
+            .title {
+              font-weight: 300;
+              font-size: 13px;
+            }
+
+            .username,
+            .time {
+              font-size: 12px;
+              color: var(--text-muted, #888);
+            }
+          }
+
+          .username {
+            font-size: 13px;
+            font-weight: 400;
+          }
+        }
+
+
+
+        .noti-img{
+          padding: 6px;
+          background-color: var(--Primary-Blue, #E3F5FF);
+          border-radius: 35%;
+        }
+      }
+    }
+  }
+}
+
+.contact-item{
+  .username{
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+  }
+}

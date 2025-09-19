@@ -1,0 +1,46 @@
+.breadcrumb {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--breadcrumb-text);
+  
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    li {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+  
+      a {
+        text-decoration: none;         // removes underline
+        color: var(--breadcrumb-text); // same color as text
+        transition: color 0.2s ease;
+  
+        &:hover {
+          color: var(--breadcrumb-hover-text, #007bff); // optional hover color
+        }
+      }
+  
+      .separator {
+        margin: 0 6px;
+        color: var(--text-muted, #aaa);
+      }
+  
+      &:last-child {
+        color: var(--breadcrumb-last-text);
+        font-weight: 600;
+  
+        a {
+          pointer-events: none;  // disable click on last breadcrumb
+          color: inherit;
+        }
+      }
+    }
+  }
+  

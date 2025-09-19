@@ -1,0 +1,32 @@
+.searchbar {
+  display: flex;
+  align-items: center;
+  background: var(--searchbar-bg);
+  border-radius: 8px;
+  padding: 6px 12px;
+  gap: 8px;
+  max-width: 250px;
+
+  .search-icon {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .hotkey-icon {
+    color: var(--placeholder-text);
+  }
+}

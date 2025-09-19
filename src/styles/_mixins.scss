@@ -1,0 +1,64 @@
+:root {
+    --bg: #ffffff;
+    --text: #1C1C1C;
+    --head-text: var(--black-20, rgba(28, 28, 28, 0.2));
+    --selected-tab-color: var(--black-5, #1c1c1c22);
+    --breadcrumb-text: var(--black-40, #1C1C1C66);
+    --breadcrumb-last-text: var(--black-100, #1C1C1C);
+    --placeholder-text: var(--black-20, #1C1C1C33);
+    --searchbar-bg: var(--black-5, #1C1C1C0D);
+    --primary: #1976d2;
+    --font-family: 'Inter', sans-serif;
+    --font-weight: 400;
+    --font-size: 14px;
+    --line-height: 20px;
+    --letter-spacing: 0;
+    --border-color: var(--black-10, #1C1C1C1A)
+  }
+  
+  .dark-theme {
+    --bg: #121212;
+    --text: #ffffff;
+    --head-text: var(--black-40, #FFFFFF66);
+    --selected-tab-color: var(--black-5, #FFFFFF1A);
+    --breadcrumb-text: var(--black-40, #FFFFFF66);
+    --placeholder-text: var(--black-20, #FFFFFF33);
+    --searchbar-bg: var(--black-5, #FFFFFF1A);
+    --breadcrumb-last-text: var(--black-100, #FFFFFF);
+    --primary: #90caf9;
+    --font-family: 'Inter', sans-serif;
+    --font-weight: 400;
+    --font-size: 14px;
+    --line-height: 20px;
+    --letter-spacing: 0;
+    --border-color: var(--black-10, #FFFFFF1A)
+  }
+
+  
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+@mixin button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: var(--primary-hover);
+  }
+}
