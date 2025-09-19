@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
+import Home from '../src/pages/Home/Home';
 import { ThemeProvider } from './context/ThemeContext';
 import './index.css';
 
@@ -11,6 +12,7 @@ root.render(
     <ThemeProvider>
       <Router>
         <Routes>
+          <Route path="/" element={<Home/>} />
           <Route path="/dashboard" element={<App />} />
         </Routes>
       </Router>
