@@ -45,6 +45,16 @@ const RightSidebar = ({ isOpen, onToggle, result = [
         username: "Yesterday, 12:25 PM",
         avatar: "https://randomuser.me/api/portraits/men/32.jpg",
         title: "Updated the project documentation."
+      },
+      {
+        username: "59 Minutes ago",
+        avatar: "https://randomuser.me/api/portraits/men/35.jpg",
+        title: "Created a new project."
+      },
+      {
+        username: "Yesterday, 12:25 PM",
+        avatar: "https://randomuser.me/api/portraits/men/12.jpg",
+        title: "Updated the project documentation."
       }
     ]
   },
@@ -94,7 +104,7 @@ const RightSidebar = ({ isOpen, onToggle, result = [
                       alt={item.type}
                       width={20}
                       height={20}
-                      class = "noti-img" 
+                      className = "noti-img" 
                       />
                       <div className="notification-text">
                         <div className="title">{item.title}</div>

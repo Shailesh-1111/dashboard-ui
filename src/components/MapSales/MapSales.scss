@@ -1,0 +1,46 @@
+.map-sales {
+    MAX-WIDTH: 250px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  
+  .map-sales-header {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  
+  .map-sales-map {
+    position: relative;
+    display: inline-block;
+  }
+  
+
+
+  .map-sales-data{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+
+  .map-sales-bar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .map-sales-label {
+    font-size: 12px;
+    color: var(--text);
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+  }
+  

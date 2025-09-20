@@ -1,0 +1,119 @@
+
+#bar-graph-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    // background: var(--bg-row);
+  }
+  
+  #bar-graph-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0px;
+    text-align: left;
+  }
+  
+  #chart-wrapper {
+    height: 100%;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    box-sizing: border-box;
+  }
+  
+  #legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    gap: 24px;
+  
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+  
+      > div {
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+      }
+  
+      &:first-child > div {
+        background-color: #60a5fa;
+      }
+  
+      &:last-child > div {
+        background-color: #dbeafe;
+      }
+  
+      > span {
+        font-size: 14px;
+        color: #4b5563;
+        font-weight: 400;
+      }
+    }
+  }
+  
+  #data-display {
+    margin-top: 32px;
+    padding: 16px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+  
+    > h3 {
+      font-size: 18px;
+      font-weight: 500;
+      color: #374151;
+      margin: 0 0 16px 0;
+    }
+  
+    > div {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+  
+      > div {
+        text-align: center;
+  
+        > div:first-child {
+          font-weight: 500;
+          color: #374151;
+          margin-bottom: 4px;
+        }
+  
+        > div:nth-child(2) {
+          font-size: 14px;
+          color: #2563eb;
+          margin-bottom: 2px;
+        }
+  
+        > div:last-child {
+          font-size: 14px;
+          color: #60a5fa;
+        }
+      }
+    }
+  }
+
+  // Hover effects
+  #legend > div {
+    transition: opacity 0.2s ease;
+    cursor: default;
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  #data-display > div > div {
+    transition: transform 0.2s ease;
+    padding: 8px;
+    border-radius: 4px;
+  
+    &:hover {
+      transform: translateY(-1px);
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }

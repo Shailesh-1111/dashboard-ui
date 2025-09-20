@@ -6,7 +6,14 @@
     --breadcrumb-text: var(--black-40, #1C1C1C66);
     --breadcrumb-last-text: var(--black-100, #1C1C1C);
     --placeholder-text: var(--black-20, #1C1C1C33);
+
+    --bg-row: var(--Primary-Light, #F7F9FB);
     --searchbar-bg: var(--black-5, #1C1C1C0D);
+
+    --border-right: 2px solid #1C1C1C33;
+    --border-bottom: 1px solid #1C1C1C0D;
+
+    --circle-inner: #1C1C1C;
     --primary: #1976d2;
     --font-family: 'Inter', sans-serif;
     --font-weight: 400;
@@ -23,8 +30,14 @@
     --selected-tab-color: var(--black-5, #FFFFFF1A);
     --breadcrumb-text: var(--black-40, #FFFFFF66);
     --placeholder-text: var(--black-20, #FFFFFF33);
+
+    --bg-row: var(--Primary-Light, #FFFFFF0D);
     --searchbar-bg: var(--black-5, #FFFFFF1A);
     --breadcrumb-last-text: var(--black-100, #FFFFFF);
+
+    --border-right: 2px solid #FFFFFF33;
+    --border-bottom: 1px solid #FFFFFF1A;
+    --circle-inner: #C6C7F8;
     --primary: #90caf9;
     --font-family: 'Inter', sans-serif;
     --font-weight: 400;

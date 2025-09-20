@@ -65,6 +65,27 @@ import BroadcastDark from "../../assets/icons/dark/Broadcast.svg";
 import UserLight from "../../assets/icons/light/User.svg";
 import UserDark from "../../assets/icons/dark/User.svg";
 
+import ArrowRiseLight from "../../assets/icons/light/ArrowRise.svg";
+import ArrowRiseDark from "../../assets/icons/dark/ArrowRise.svg";
+
+import ArrowFallLight from "../../assets/icons/light/ArrowFall.svg";
+import ArrowFallDark from "../../assets/icons/dark/ArrowFall.svg";
+
+import MapLight from "../../assets/icons/light/Map.svg";
+import MapDark from "../../assets/icons/dark/Map.svg";
+
+import CalendarBlankLight from "../../assets/icons/light/CalendarBlank.svg";
+import CalendarBlankDark from "../../assets/icons/dark/CalendarBlank.svg";
+
+import ArrowsDownUpLight from "../../assets/icons/light/ArrowsDownUp.svg";
+import ArrowsDownUpDark from "../../assets/icons/dark/ArrowsDownUp.svg";
+
+import FunnelSimpleLight from "../../assets/icons/light/FunnelSimple.svg";
+import FunnelSimpleDark from "../../assets/icons/dark/FunnelSimple.svg";
+
+import AddLight from "../../assets/icons/light/Add.svg";
+import AddDark from "../../assets/icons/dark/Add.svg";
+
 
 // Registry
 const icons = {
@@ -90,18 +111,58 @@ const icons = {
   BugBeetle: { light: BugBeetleLight, dark: BugBeetleDark },
   Broadcast: { light: BroadcastLight, dark: BroadcastDark },
   User: { light: UserLight, dark: UserDark },
+  ArrowRise: { light: ArrowRiseLight, dark: ArrowRiseDark },
+  ArrowFall: { light: ArrowFallLight, dark: ArrowFallDark },
+  CalendarBlank: { light: CalendarBlankLight, dark: CalendarBlankDark },
+  ArrowsDownUp: { light: ArrowsDownUpLight, dark: ArrowsDownUpDark },
+  FunnelSimple: { light: FunnelSimpleLight, dark: FunnelSimpleDark },
+  Add: { light: AddLight, dark: AddDark },
+  Map: { light: MapLight, dark: MapDark },
 };
 
-const Icon = ({ name, alt, width = 24, height = 24, ...props }) => {
+const Icon = ({
+  name,
+  alt,
+  width = 24,
+  height = 24,
+  widthPercent,
+  heightPercent,
+  fixedTheme,
+  ...props
+}) => {
   const { dark } = useContext(ThemeContext);
-  const IconSrc = icons[name]?.[dark ? "dark" : "light"];
+  const mode =
+    fixedTheme === "dark"
+      ? "dark"
+      : fixedTheme === "light"
+      ? "light"
+      : dark
+      ? "dark"
+      : "light";
+
+  const IconSrc = icons[name]?.[mode];
 
   if (!IconSrc) {
     console.warn(`Icon "${name}" not found in registry`);
     return null;
   }
 
-  return <img src={IconSrc} alt={alt || name} width={width} height={height} {...props} />;
+  // Apply % if given, else fallback to px width/height
+  const style = {
+    width: widthPercent ? `${widthPercent}%` : `${width}px`,
+    height: heightPercent ? `${heightPercent}%` : `${height}px`,
+    ...props.style, // allow overriding styles if passed
+  };
+
+  return (
+    <img
+      src={IconSrc}
+      alt={alt || name}
+      style={style}
+      {...props}
+    />
+  );
 };
 
 export default Icon;
+

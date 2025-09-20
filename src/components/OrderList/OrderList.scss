@@ -1,0 +1,138 @@
+.order-list {
+    padding: 16px;
+
+    .title{
+      font-family: Inter;
+      font-weight: 600;
+      font-style: Semi Bold;
+      font-size: 14px;
+      display: flex;
+      text-align: left;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+  
+    .order-toolbar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      background: var(--bg-row);
+      border-radius: 8px;
+      padding: 8px 14px 8px 14px;
+      height: 30px;
+      
+
+      .icons{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+  
+    .order-header,
+    .order-row {
+      display: grid;
+      grid-template-columns: 40px 120px 180px 180px 200px 150px 120px;
+      align-items: center;
+      text-align-last: left;
+      padding: 10px;
+      border-bottom: var(--border-bottom);
+    }
+  
+    .order-header {
+      color: var(--head-text);
+      background: var(--bg);
+    }
+  
+    .order-row {
+      color: var(--text);
+      background: var(--bg);
+      white-space: nowrap;
+      &:hover {
+        background: #f5f5f5;
+      }
+
+      .project{
+        width: 90%;
+        overflow: hidden;
+      }
+    }
+  
+    .user-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  
+      img {
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .date{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  
+    .status {
+      padding: 4px 8px;
+      text-align: center;
+      font-size: 12px;
+
+    }
+  }
+
+  .pagination-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 0;
+    margin-top: 20px;
+    
+    .pagination {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      
+      .pagination-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        padding: 6px 12px;
+        border: 1px solid transparent;
+        background: transparent;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        
+        &:hover:not(:disabled) {
+          background-color: rgba(138, 140, 217, 0.1);
+        }
+        
+        &.active {
+          border-radius: 6px;
+        }
+        
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+      
+      .pagination-ellipsis {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        font-size: 14px;
+        pointer-events: none;
+      }
+    }
+  }
+  

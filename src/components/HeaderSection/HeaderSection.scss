@@ -1,0 +1,28 @@
+.header-section {
+    display: flex;
+    align-items: center;
+    gap: 24px; // space between title and items
+  
+    .header-title {
+        font-size: 14px;
+        font-weight: 600;
+        border-right: var(--border-right);
+        padding-right: 20px;
+        align-self: center;
+    }
+  
+    .header-item {
+      display: flex;
+      align-items: center;
+      gap: 8px; // space between dot and text
+  
+      strong {
+        font-weight: bold;
+
+        p{
+            margin-left: 20px;
+        }
+      }
+    }
+  }
+  

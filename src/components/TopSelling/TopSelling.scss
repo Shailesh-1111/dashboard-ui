@@ -1,0 +1,55 @@
+.top-selling {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  
+  
+    &-header {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+  
+    &-table-header,
+    .top-selling-row {
+      display: flex;
+      padding: 6px 0;
+    }
+  
+    &-table-header {
+        color: var(--head-text);
+       
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr; // Name takes 2 parts, others equal
+        gap: 8px; // spacing between columns
+        padding: 6px 0;  
+        text-align-last: start;
+    }
+
+
+
+    &-line {
+      height: 1px;
+      background-color: var(--head-text);
+      margin: 4px 0 8px 0;
+    }
+  
+    &-list {
+        color: var(--text);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap:14px;
+
+        .top-selling-row{
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr; // Name takes 2 parts, others equal
+            gap: 8px; // spacing between columns
+            padding: 6px 0;  
+            text-align-last: start;
+        }
+    }
+  }
+

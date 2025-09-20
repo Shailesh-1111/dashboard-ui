@@ -2,9 +2,15 @@ import React from "react";
 import "./SearchBar.scss";
 import Icon from "../../components/Icon/Icon";
 
-const SearchBar = ({ placeholder = "Search", hotkey = "⌘/" }) => {
+const SearchBar = ({ placeholder = "Search", hotkey = "⌘/", width, height }) => {
   return (
-    <div className="searchbar">
+    <div
+      className="searchbar"
+      style={{
+        ...(width ? { width } : {}),
+        ...(height ? { height } : {}),
+      }}
+    >
       <div className="search-icon">
         <Icon name="Search" alt="Search" />
       </div>

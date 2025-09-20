@@ -1,0 +1,15 @@
+.horizontal-bar {
+    width: 100%;        // full container width
+    height: 3px;        // fixed height
+    background: #e0e0e0; // unfilled background color
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .horizontal-bar-fill {
+    height: 100%;
+    background: #A8C5DA; // fill color
+    width: 0%;           // dynamic via inline style
+    transition: width 0.3s ease;
+  }
+  

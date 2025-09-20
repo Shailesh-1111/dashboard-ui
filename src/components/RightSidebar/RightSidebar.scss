@@ -19,7 +19,7 @@
   .sidebar-content {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 54px;
 
     .section {
       display: flex;
@@ -36,7 +36,7 @@
       .section-items {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 24px;
 
         .notification-item,
         .activity-item,
@@ -94,6 +94,6 @@
   .username{
     display: flex;
     align-items: center;
-    font-weight: 400;
+    font-weight: 300;
   }
 }
