@@ -67,8 +67,9 @@ const  DonutSlice = ({
       <circle cx={endX} cy={endY} r={thickness / 2} className={`donut-slice-dot ${isHovered ? "hovered" : ""}`} style={{ fill: color }} />
 
       {isHovered && (
-        <g className="donut-slice-tooltip">
-          <text x={tooltipX} y={tooltipY} textAnchor="middle">{percentage}%</text>
+        <g className="donut-slice-tooltip" >
+          <rect className="tooltip-bg" x={tooltipX - 25} y={tooltipY - 15} width={50} height={25} rx={6} ry={6}/>
+          <text  className="tooltip-text" x={tooltipX} y={tooltipY}  textAnchor="middle" dominantBaseline="middle">{percentage}%</text>
         </g>
       )}
     </g>
