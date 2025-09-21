@@ -112,15 +112,15 @@
 
       &.active {
         background: #f0f9ff;
-        border-left: 4px solid var(--selected-tab-color);
+        border-left: 4px solid var(--text);
         background-color: var(--selected-tab-color);
-        border-radius: 4px 6px 6px 4px;
+        border-radius: 0px 6px 6px 0px;
       }
     }
   }
 
   .submenu {
-    margin-left: 30px; // indentation
+    margin-left: 30px; 
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -129,7 +129,7 @@
       padding: 6px 0 0 36px;
       font-size: 13px;
       font-weight: 400;
-      color: #6b7280; // muted gray
+      color: #6b7280;
       text-decoration: none;
       transition: color 0.2s;
       cursor: pointer;
