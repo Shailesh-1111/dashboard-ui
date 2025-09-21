@@ -6,7 +6,7 @@
     height: 300px;
     gap: 16px;
     font-family: sans-serif;
-    color: #555;
+    color: va();
     text-align: center;
   }
   
@@ -20,7 +20,7 @@
       color: #007bff;
       text-decoration: underline;
       transition: color 0.2s;
-      font-size: 40px;
+      font-size: 28px;
   
       &:hover {
         color: #0056b3;
