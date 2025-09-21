@@ -1,5 +1,6 @@
 .donut-slice {
     cursor: pointer;
+    overflow: visible;
     transition: all 0.2s ease;
   
     .donut-slice-border {
@@ -28,17 +29,18 @@
       filter: brightness(1.1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
     }
   
-    .donut-slice-tooltip {
-  
-      text {
-        color: var(--text);
-        font-size: 12px;
-      }
-  
-      text:last-child {
-        font-size: 10px;
-        font-weight: normal;
-      }
+
+  }
+
+
+  .donut-slice-tooltip {
+    .tooltip-bg {
+      fill: var(--text);
+    }
+
+    .tooltip-text {
+      fill: var(--text-reverse);
+      font-size: 14px;
     }
   }
   

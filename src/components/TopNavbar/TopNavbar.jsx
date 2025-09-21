@@ -31,10 +31,10 @@ const TopNavBar = ({ toggleLeftSidebar, toggleRightSidebar, breadCrumPath, setBr
         <div className="nav-icon" onClick={toggleDark}>
           <Icon name="Sun" alt="Theme Toggle" />
         </div>
-        <div className="nav-icon">
+        <div className="nav-icon" onClick={toggleRightSidebar}>
           <Icon name="ClockCounterClockwise" alt="History" />
         </div>
-        <div className="nav-icon">
+        <div className="nav-icon" onClick={toggleRightSidebar}>
           <Icon name="Bell" alt="Notifications" />
         </div>
         <div className="nav-icon" onClick={toggleRightSidebar}>

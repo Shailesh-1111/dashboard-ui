@@ -34,7 +34,7 @@ const DonutChart = ({
     <div className="pie-chart-container-wrapper">
       <h3>Total Sales</h3>
       <div className="pie-chart-container">
-        <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+        <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}  style={{ overflow: "visible" }}>
           {slices.map((slice, index) => (
             <DonutSlice
               key={index}

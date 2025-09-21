@@ -20,6 +20,9 @@ const OrderList = ({orders = []}) => {
     { type: "approved", name: "Approved", color: dark ? "#FFC555" : "#FFC555" },
     { type: "rejected", name: "Rejected", color: dark ? "#FFFFFF66" : "#1C1C1C66" },
   ];
+
+  const statusOrder = ["complete", "in_progress",  "approved", "pending", "rejected"];
+
   
   const getStatusInfo = (type) => statusArray.find((s) => s.type === type) || { name: type, color: dark ? "#fff" : "#000" };
 
@@ -105,7 +108,18 @@ useEffect(() => {
           }}
         />
 
-          <Icon name="ArrowsDownUp"/>
+          <Icon 
+          name="ArrowsDownUp"
+          onClick={() => {
+            const sorted = [...sortedOrders].sort((a, b) => {
+              const indexA = statusOrder.indexOf(a.status_type);
+              const indexB = statusOrder.indexOf(b.status_type);
+              return sortAsc ? indexA - indexB : indexB - indexA;
+            });
+            setSortedOrders(sorted);
+            setSortAsc(!sortAsc);
+          }}
+          />
         </div>
         <SearchBar
           hotkey=""

@@ -28,12 +28,12 @@ export const mapSalesData = [
 ];
 
 export const topSellingData = [
-  { name: "Alice Johnson", price: 1200, quantity: 5, amount: 1200 * 5 },
-  { name: "Michael Smith", price: 806, quantity: 10, amount: 800 * 10 },
-  { name: "Sophia Williams", price: 451, quantity: 8, amount: 450 * 8 },
-  { name: "James Brown", price: 953, quantity: 3, amount: 950 * 3 },
-  { name: "Olivia Davis", price: 614, quantity: 7, amount: 600 * 7 },
-  { name: "Oggy Jack", price: 676, quantity: 4, amount: 600 * 4 },
+  { name: "Laptop 1080p", price: 1200, quantity: 5, amount: 1200 * 5 },
+  { name: "Headphones Rockerz110", price: 806, quantity: 10, amount: 800 * 10 },
+  { name: "Smartphone Iphone 17 pro", price: 451, quantity: 8, amount: 450 * 8 },
+  { name: "Backpack MI", price: 953, quantity: 3, amount: 950 * 3 },
+  { name: "Coffee Mug Milton", price: 614, quantity: 7, amount: 600 * 7 },
+  { name: "Sneakers Air Jordan", price: 676, quantity: 4, amount: 600 * 4 },
 ];
 
 export const cardsData = [
