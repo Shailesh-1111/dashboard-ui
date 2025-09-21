@@ -2,7 +2,6 @@ import React from "react";
 import "./HorizontalBar.scss";
 
 const HorizontalBar = ({ value, max = 100 }) => {
-  // Calculate fill percentage
   const widthPercent = Math.min((value / max) * 100, 100);
 
   return (

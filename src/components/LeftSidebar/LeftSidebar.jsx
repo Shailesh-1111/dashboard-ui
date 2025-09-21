@@ -4,7 +4,6 @@ import './LeftSidebar.scss';
 import Icon from '../../components/Icon/Icon';
 import ByeWind from '../../assets/images/ByeWind.png';
 
-
 const favouritesArray = [
   { id: 'fav-overview', label: 'Overview', path: '/dashboard?fav-overview' },
   { id: 'fav-projects', label: 'Projects', path: '/dashboard?fav-projects' },
@@ -72,51 +71,148 @@ const pagesArray = [
   },
 ];
 
+const createPathToTabMap = () => {
+  const pathMap = new Map();
 
+  favouritesArray.forEach(item => {
+    const pathKey = item.path.split('?')[1];
+    pathMap.set(pathKey, {
+      id: item.id,
+      label: item.label,
+      path: item.path,
+      category: 'Favorites',
+      type: 'favorite',
+      icon: null,
+      parentId: null,
+      breadcrumb: ['Favorites', item.label]
+    });
+  });
 
+  dashboardArray.forEach(item => {
+    const pathKey = item.path.split('?')[1];
+    pathMap.set(pathKey, {
+      id: item.id,
+      label: item.label,
+      path: item.path,
+      category: 'Dashboards',
+      type: 'dashboard',
+      icon: item.icon,
+      parentId: null,
+      breadcrumb: ['Dashboards', item.label]
+    });
+  });
+
+  pagesArray.forEach(page => {
+    const pagePathKey = page.path.split('?')[1];
+    
+    pathMap.set(pagePathKey, {
+      id: page.id,
+      label: page.label,
+      path: page.path,
+      category: 'Pages',
+      type: 'page',
+      icon: page.icon,
+      parentId: null,
+      hasSubmenu: !!page.submenu,
+      breadcrumb: ['Pages', page.label]
+    });
+
+    if (page.submenu) {
+      page.submenu.forEach(sub => {
+        const subPathKey = sub.path.split('?')[1];
+        pathMap.set(subPathKey, {
+          id: sub.id,
+          label: sub.label,
+          path: sub.path,
+          category: 'Pages',
+          type: 'submenu',
+          icon: null,
+          parentId: page.id,
+          parentLabel: page.label,
+          breadcrumb: ['Pages', page.label, sub.label]
+        });
+      });
+    }
+  });
+
+  return pathMap;
+};
+
+const extractPathFromUrl = (url) => {
+  try {
+    const urlObj = new URL(url);
+    const pathname = urlObj.pathname;
+    const search = urlObj.search;
+    
+    if (search) {
+      return `${pathname.substring(1)}${search}`;
+    }
+    
+    return pathname.substring(1);
+  } catch (error) {
+    console.error('Invalid URL:', error);
+    return null;
+  }
+};
+
+const getTabDetailsFromPath = (pathMap, currentPath) => {
+  const queryPart = currentPath.includes('?') ? currentPath.split('?')[1] : currentPath;
+  
+  const tabDetails = pathMap.get(queryPart);
+  return tabDetails || null;
+};
 
 const LeftSidebar = ({ isOpen, username, setBreadCrumPath }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [expanded, setExpanded] = useState({});
+  
+  const pathToTabMap = createPathToTabMap();
+  
+  const currentUrl = window.location.href;
+  const extractedPath = extractPathFromUrl(currentUrl);
+  
+  const currentTabDetails = getTabDetailsFromPath(pathToTabMap, extractedPath || '');
+  
+  const [activeId, setActiveId] = useState(() => currentTabDetails?.id || null);
+
+  useEffect(() => {
+    console.log('Current URL:', currentUrl);
+    console.log('Extracted Path:', extractedPath);
+    console.log('Current Tab Details:', currentTabDetails);
+    console.log('Active ID:', activeId);
+  }, [currentUrl, extractedPath, currentTabDetails, activeId]);
 
   const toggleExpand = (id) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const location = useLocation();
-  const queryParam = new URLSearchParams(location.search).toString(); // "dash-e-commerce"
-  
-  // build map from path/query to id
-  const pathToIdMap = {};
-  
-  // favourites
-  favouritesArray.forEach(item => pathToIdMap[item.path.split("?")[1]] = item.id);
-  
-  // dashboards
-  dashboardArray.forEach(item => pathToIdMap[item.path.split("?")[1]] = item.id);
-  
-  // pages and submenus
-  pagesArray.forEach(page => {
-    pathToIdMap[page.path.split("?")[1]] = page.id;
-    page.submenu?.forEach(sub => {
-      pathToIdMap[sub.path.split("?")[1]] = sub.id;
-    });
-  });
-  
-  // initialize activeId based on queryParam
-  const [activeId, setActiveId] = useState(() => pathToIdMap[queryParam] || null);
-  
-  // auto-expand parent menus if a submenu is active
   useEffect(() => {
-    pagesArray.forEach(page => {
-      if (page.submenu?.some(sub => sub.id === activeId)) {
-        setExpanded(prev => ({ ...prev, [page.id]: true }));
+    if (currentTabDetails && currentTabDetails.parentId) {
+      setExpanded(prev => ({ ...prev, [currentTabDetails.parentId]: true }));
+    }
+  }, [currentTabDetails]);
+
+  useEffect(() => {
+    const newExtractedPath = extractPathFromUrl(window.location.href);
+    const newTabDetails = getTabDetailsFromPath(pathToTabMap, newExtractedPath || '');
+    
+    if (newTabDetails) {
+      setActiveId(newTabDetails.id);
+      
+      if (setBreadCrumPath && newTabDetails.breadcrumb) {
+        const breadcrumbItems = newTabDetails.breadcrumb.map((label, index) => ({
+          label,
+          link: index === newTabDetails.breadcrumb.length - 1 ? newTabDetails.path : undefined
+        }));
+        setBreadCrumPath(breadcrumbItems);
       }
-    });
-  }, [activeId]);
-
-
- 
+      
+      if (newTabDetails.parentId) {
+        setExpanded(prev => ({ ...prev, [newTabDetails.parentId]: true }));
+      }
+    }
+  }, [location, setBreadCrumPath]);
 
   const renderFavourites = (parentlabel, items) => (
     <div className="menu-section">
@@ -205,7 +301,7 @@ const LeftSidebar = ({ isOpen, username, setBreadCrumPath }) => {
         <div className="header">
           <h4>Favorites</h4> <h4>Recently</h4>
         </div>
-        {renderFavourites('Favorite', favouritesArray)}
+        {renderFavourites('Favorites', favouritesArray)}
       </div>
 
       <div className="dashboard">

@@ -1,93 +1,9 @@
 import React from "react";
 import "./RightSidebar.scss";
 import Icon from "../../components/Icon/Icon";
+import { rightSidebarData } from "../../data/mockData";
 
-const RightSidebar = ({ isOpen, onToggle, result = [
-  {
-    title: "Notifications",
-    data: [
-      {
-        type: "bug",
-        time: "2 hours ago",
-        title: "You have a bug that needs to be fixed."
-      },
-      {
-        type: "Broadcast",
-        time: "Today, 11:59 AM",
-        title: "System update available."
-      },
-      {
-        type: "message",
-        time: "Yesterday",
-        title: "You received a new message."
-      },
-      {
-        type: "bug",
-        time: "29 july 2025",
-        title: "You have a bug that needs to be fixed."
-      },
-    ]
-  },
-  {
-    title: "Activities",
-    data: [
-      {
-        username:"Just Now",
-        avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-        title: "Released a new version of the app."
-      },
-      {
-        username: "59 Minutes ago",
-        avatar: "https://randomuser.me/api/portraits/men/45.jpg",
-        title: "Created a new project."
-      },
-      {
-        username: "Yesterday, 12:25 PM",
-        avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-        title: "Updated the project documentation."
-      },
-      {
-        username: "59 Minutes ago",
-        avatar: "https://randomuser.me/api/portraits/men/35.jpg",
-        title: "Created a new project."
-      },
-      {
-        username: "Yesterday, 12:25 PM",
-        avatar: "https://randomuser.me/api/portraits/men/12.jpg",
-        title: "Updated the project documentation."
-      }
-    ]
-  },
-  {
-    title: "Contacts",
-    data: [
-      {
-        username: "David Guetta",
-        avatar: "https://randomuser.me/api/portraits/men/12.jpg"
-      },
-      {
-        username: "Eve Tailor",
-        avatar: "https://randomuser.me/api/portraits/women/21.jpg"
-      },
-      {
-        username: "Frank Yankee",
-        avatar: "https://randomuser.me/api/portraits/men/56.jpg"
-      },
-      {
-        username: "Amid Ansari",
-        avatar: "https://randomuser.me/api/portraits/men/2.jpg"
-      },
-      {
-        username: "Meemansa Verma",
-        avatar: "https://randomuser.me/api/portraits/women/14.jpg"
-      },
-      {
-        username: "Honey Paaji",
-        avatar: "https://randomuser.me/api/portraits/men/17.jpg"
-      }
-    ]
-  }
-] }) => {
+const RightSidebar = ({ isOpen, onToggle, result = rightSidebarData }) => {
   return (
     <aside className={`right-sidebar ${isOpen ? "open" : "closed"}`}>
       <div className="sidebar-content">

@@ -5,15 +5,13 @@ import "./Breadcrumb.scss";
 const Breadcrumb = ({ paths = [], setBreadCrumPath }) => {
   const navigate = useNavigate();
 
-  // Always display Home at the start
   const fullPaths = [{ label: "Home", link: "/" }, ...paths];
 
   const handleClick = (path, index) => {
-    if (!path.link) return; // Skip if no link
+    if (!path.link) return;
 
     navigate(path.link);
 
-    // Update breadcrumb excluding Home in state, since Home is always displayed
     setBreadCrumPath(fullPaths.slice(1, index + 1));
   };
 

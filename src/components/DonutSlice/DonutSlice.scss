@@ -1,0 +1,44 @@
+.donut-slice {
+    cursor: pointer;
+    transition: all 0.2s ease;
+  
+    .donut-slice-border {
+      fill: none;
+      stroke: var(--bg-row);
+      stroke-width: 24; // default, overridden in JSX
+      stroke-linecap: butt;
+    }
+  
+    .donut-slice-border-circle {
+      fill: var(--text-reverse);
+      stroke: var(--bg-row);
+    }
+  
+    .donut-slice-path {
+      fill: none;
+      stroke-linecap: butt;
+      transition: all 0.2s ease;
+    }
+  
+    .donut-slice-dot {
+      transition: all 0.2s ease;
+    }
+  
+    .hovered {
+      filter: brightness(1.1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+  
+    .donut-slice-tooltip {
+  
+      text {
+        color: var(--text);
+        font-size: 12px;
+      }
+  
+      text:last-child {
+        font-size: 10px;
+        font-weight: normal;
+      }
+    }
+  }
+  

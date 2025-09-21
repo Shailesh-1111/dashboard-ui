@@ -11,7 +11,6 @@
   min-height: 600px;
 }
 
-// Left Panel - 212px (212/1440 = 14.72%)
 .left-panel {
   width: 212px;
   height: 100%;
@@ -22,7 +21,6 @@
   overflow: hidden;
 }
 
-// Center Panel - 948px (948/1440 = 65.83%)
 .center-panel {
   flex: 1;
   background-color: var(--card-bg);
@@ -33,13 +31,11 @@
 
 
   .panel-content {
-    // height: 100%;
     overflow-y: scroll;
     padding-bottom: 40px;
   }
 }
 
-// Right Panel - 280px (280/1440 = 19.44%)
 .right-panel {
   width: 280px;
   height: 100%;
@@ -135,9 +131,6 @@
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
 
-    // @media (max-width: 768px) {
-    //   grid-template-columns: 1fr;
-    // }
   }
 }
 
@@ -304,7 +297,6 @@
   }
 }
 
-// Left Panel Styles
 .mini-stats {
   margin-bottom: 1.5rem;
 
@@ -376,12 +368,10 @@
   }
 }
 
-// Center Panel Styles
 .main-content-area {
   margin-top: 1.5rem;
 }
 
-// Right Panel Styles
 .activity-list {
   margin-bottom: 1.5rem;
 
@@ -451,55 +441,3 @@
   }
 }
 
-// @media (max-width: 1200px) {
-//   .dashboard-layout {
-//     height: 100vh;
-//   }
-
-//   .left-panel,
-//   .right-panel {
-//     width: 100%;
-//   }
-
-//   .center-panel {
-//     flex: none;
-//   }
-// }
-
-// @media (max-width: 768px) {
-//   .dashboard {
-//     padding: 1rem;
-//   }
-
-//   .dashboard-header {
-//     flex-direction: column;
-//     align-items: flex-start;
-//     gap: 1rem;
-
-//     h1 {
-//       font-size: 1.5rem;
-//     }
-
-//     .header-actions {
-//       width: 100%;
-//       justify-content: flex-end;
-//     }
-//   }
-
-//   .stats-grid {
-//     grid-template-columns: 1fr;
-//     gap: 1rem;
-//   }
-
-//   .dashboard-layout {
-//     gap: 0.75rem;
-//   }
-
-//   .left-panel,
-//   .center-panel,
-//   .right-panel {
-//     .panel-content {
-//       padding: 1rem;
-//     }
-//   }
-// }

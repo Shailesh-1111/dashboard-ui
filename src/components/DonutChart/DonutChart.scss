@@ -1,0 +1,51 @@
+.pie-chart-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 1rem;
+    color: var(--text);
+    width: 195px;
+
+  }
+
+  .pie-chart-container{
+    margin-left: auto;
+  }
+  
+  .donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 1rem;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+  
+  .legend-name {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .legend-value {
+  }
+
+  h3{
+    margin: 0;
+    font-size: 14px;
+  }
+  
