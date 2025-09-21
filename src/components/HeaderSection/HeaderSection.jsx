@@ -8,7 +8,7 @@ const HeaderSection = ({ title, data }) => {
     <div className="header-section">
       <div className="header-title">{title}</div>
       {data.map((item, index) => (
-        <div className="header-item" key={index}>
+        <div className="header-item" key={`header-${index}-${item.name}`}>
           {item.name && <><Icon name="Dot" />{item.name} </>}
           <strong><p>{item.amount}</p></strong>
         </div>

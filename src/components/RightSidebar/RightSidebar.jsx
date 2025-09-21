@@ -8,13 +8,13 @@ const RightSidebar = ({ isOpen, onToggle, result = rightSidebarData }) => {
     <aside className={`right-sidebar ${isOpen ? "open" : "closed"}`}>
       <div className="sidebar-content">
         {result.map((section, idx) => (
-          <div className="section" key={idx}>
+          <div className="section" key={`section-${idx}-${section.title}`}>
             <p>{section.title}</p>
             <div className="section-items">
               {section.data.map((item, index) => {
                 if (section.title.toLowerCase() === "notifications") {
                   return (
-                    <div className="notification-item" key={index}>
+                    <div className="notification-item" key={`notification-${index}-${item.type}`}>
                       <Icon 
                       name={item.type == "bug" ? "BugBeetle" : item.type == "message" ? "User" : "Broadcast"} 
                       alt={item.type}
@@ -32,7 +32,7 @@ const RightSidebar = ({ isOpen, onToggle, result = rightSidebarData }) => {
 
                 if (section.title.toLowerCase() === "activities") {
                   return (
-                    <div className="activity-item" key={index}>
+                    <div className="activity-item" key={`activity-${index}-${item.username}`}>
                       <img
                         src={item.avatar}
                         alt={item.username}
@@ -49,7 +49,7 @@ const RightSidebar = ({ isOpen, onToggle, result = rightSidebarData }) => {
 
                 if (section.title.toLowerCase() === "contacts") {
                   return (
-                    <div className="contact-item" key={index}>
+                    <div className="contact-item" key={`contact-${index}-${item.username}`}>
                       <img
                         src={item.avatar}
                         alt={item.username}

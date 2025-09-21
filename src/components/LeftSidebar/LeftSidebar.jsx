@@ -177,10 +177,7 @@ const LeftSidebar = ({ isOpen, username, setBreadCrumPath }) => {
   const [activeId, setActiveId] = useState(() => currentTabDetails?.id || null);
 
   useEffect(() => {
-    console.log('Current URL:', currentUrl);
-    console.log('Extracted Path:', extractedPath);
-    console.log('Current Tab Details:', currentTabDetails);
-    console.log('Active ID:', activeId);
+
   }, [currentUrl, extractedPath, currentTabDetails, activeId]);
 
   const toggleExpand = (id) => {

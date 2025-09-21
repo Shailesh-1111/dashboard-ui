@@ -37,7 +37,7 @@ const DonutChart = ({
         <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}  style={{ overflow: "visible" }}>
           {slices.map((slice, index) => (
             <DonutSlice
-              key={index}
+              key={`slice-${index}-${slice.label}`}
               radius={radius}
               color={slice.color}
               startAngle={slice.startAngle - 90}
@@ -54,7 +54,7 @@ const DonutChart = ({
       </div>
       <div className="donut-legend">
         {processedData.map((item, index) => (
-          <div key={index} className="legend-item">
+          <div key={`legend-${index}-${item.label}`} className="legend-item">
             <span className="legend-dot" style={{ backgroundColor: item.color }}></span>
             <span className="legend-name">{item.label}</span>
             <span className="legend-value">${item.value}</span>
