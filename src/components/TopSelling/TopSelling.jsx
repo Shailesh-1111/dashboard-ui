@@ -20,7 +20,7 @@ const TopSelling = ({
 
       <div className="top-selling-list">
         {listArray.map((item, index) => (
-          <div key={index} className="top-selling-row">
+          <div key={`top-selling-${index}-${item.name}`} className="top-selling-row">
             <div className="column name">{item.name}</div>
             <div className="column price">${item.price}</div>
             <div className="column quantity">{item.quantity}</div>

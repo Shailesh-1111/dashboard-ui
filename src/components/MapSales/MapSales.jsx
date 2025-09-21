@@ -23,8 +23,8 @@ const MapSales = ({ title = "Revenue by Location", salesData = mapSalesData, wid
         <Map points={points} width={width}/>
         <div className="map-sales-data">
         {points.slice(0,3).map((p) => (
-        <div className="map-sales-bar">
-            <div key={p.id} className="map-sales-label">
+        <div key={p.id} className="map-sales-bar">
+            <div className="map-sales-label">
                 <div>{p.location}</div>
                 <div>{p.revenue}K</div>
             </div>

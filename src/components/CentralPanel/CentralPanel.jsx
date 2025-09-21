@@ -37,7 +37,7 @@ const CentralPanel = ({selectedTab ='eCommerce', cardData = [], listArray=[], do
 
       <div className="row1">
         <div className="col flex-1 cards">
-          {cardData?.map((item) => <CardBox data={item}/>)}
+          {cardData?.map((item, index) => <CardBox key={index} data={item}/>)}
         </div>
         <div className="col flex-1-5"><BarGraph/></div>
       </div>

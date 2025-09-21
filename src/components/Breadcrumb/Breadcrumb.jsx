@@ -25,7 +25,7 @@ const Breadcrumb = ({ paths = [], setBreadCrumPath }) => {
           const hasLink = !!path.link;
 
           return (
-            <li key={index}>
+            <li key={`breadcrumb-${index}-${path.label}`}>
               {index > 0 && <span className="separator">/</span>}
               {isLast || !hasLink ? (
                 <span className="current">{path.label}</span>

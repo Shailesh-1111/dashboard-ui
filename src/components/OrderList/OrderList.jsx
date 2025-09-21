@@ -21,7 +21,7 @@ const OrderList = ({orders = []}) => {
     { type: "rejected", name: "Rejected", color: dark ? "#FFFFFF66" : "#1C1C1C66" },
   ];
 
-  const statusOrder = ["complete", "in_progress",  "approved", "pending", "rejected"];
+  const statusOrder = ["complete", "in_progress", "pending",  "approved", "rejected"];
 
   
   const getStatusInfo = (type) => statusArray.find((s) => s.type === type) || { name: type, color: dark ? "#fff" : "#000" };
@@ -144,7 +144,7 @@ useEffect(() => {
       {currentOrders.map((order, idx) => {
         const statusInfo = getStatusInfo(order.status_type)
         return (
-          <div className="order-row" key={idx}>
+          <div className="order-row" key={order.id || idx}>
             <div>
               <input
                 type="checkbox"
