@@ -4,10 +4,9 @@ import Icon from "../Icon/Icon";
 
 
 const Map = ({ image,  points = [], width = 154, height = 170 }) => {
-  // Convert lat/long to x/y (assuming equirectangular map projection)
   const project = (lat, lon) => {
-    const x = ((lon + 180) / 360) * width;        // map longitude -180..180 → 0..width
-    const y = ((90 - lat) / 180) * height;        // map latitude 90..-90 → 0..height
+    const x = ((lon + 180) / 360) * width;
+    const y = ((90 - lat) / 180) * height;
     return { x, y };
   };
 

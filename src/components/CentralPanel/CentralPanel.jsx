@@ -6,8 +6,9 @@ import LineGraph from "../LineGraph/LineGraph";
 import MapSales from "../MapSales/MapSales";
 import Map from "../Map/Map";
 import TopSelling from "../TopSelling/TopSelling";
+import DonutChart from "../DonutChart/DonutChart";
 
-const CentralPanel = ({selectedTab ='eCommerce', cardData = [], listArray=[]}) => {
+const CentralPanel = ({selectedTab ='eCommerce', cardData = [], listArray=[], donutData ={}}) => {
 
 
     const divRef = useRef(null);
@@ -32,7 +33,6 @@ const CentralPanel = ({selectedTab ='eCommerce', cardData = [], listArray=[]}) =
 
   return (
     <div className="central-panel">
-      {/* Row 1 */}
       <p className="header">{selectedTab}</p>
 
       <div className="row1">
@@ -42,16 +42,14 @@ const CentralPanel = ({selectedTab ='eCommerce', cardData = [], listArray=[]}) =
         <div className="col flex-1-5"><BarGraph/></div>
       </div>
 
-      {/* Row 2 */}
       <div className="row2">
         <div className="col flex-3 line-graph"><LineGraph/></div>
         <div className="col flex-1" ref={divRef}><MapSales width={size?.width} /></div>
       </div>
 
-      {/* Row 3 */}
       <div className="row3">
         <div className="col flex-3"><TopSelling listArray={listArray}/></div>
-        <div className="col flex-1">Row 3 - Right</div>
+        <div className="col flex-1"><DonutChart data = {donutData}/></div>
       </div>
     </div>
   );

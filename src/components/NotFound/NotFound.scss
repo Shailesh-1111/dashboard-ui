@@ -12,14 +12,15 @@
   
   .notfound-links {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 50px;
   
     span {
       cursor: pointer;
       color: #007bff;
       text-decoration: underline;
       transition: color 0.2s;
-      font-size: 18px;
+      font-size: 40px;
   
       &:hover {
         color: #0056b3;

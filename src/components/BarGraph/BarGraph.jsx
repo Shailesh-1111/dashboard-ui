@@ -1,16 +1,7 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 import './BarGraph.scss';
-
-// Dummy data that matches the chart pattern
-const data = [
-  { month: 'Jan', actuals: 18, projections: 2 },
-  { month: 'Feb', actuals: 20, projections: 5 },
-  { month: 'Mar', actuals: 19, projections: 2.5 },
-  { month: 'Apr', actuals: 22, projections: 4 },
-  { month: 'May', actuals: 15, projections: 3 },
-  { month: 'Jun', actuals: 20, projections: 5 }
-];
+import { barGraphData } from '../../data/mockData';
 
 const BarGraph = () => {
   const formatYAxisTick = (value) => {
@@ -29,12 +20,12 @@ const BarGraph = () => {
       <div id="chart-wrapper">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
-            data={data}
+            data={barGraphData}
             margin={{
               top: 20,
               left: -20
             }}
-            barCategoryGap="70%"
+            barCategoryGap="65%"
           >
             <CartesianGrid 
               strokeDasharray="" 

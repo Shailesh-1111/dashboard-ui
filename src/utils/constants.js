@@ -1,4 +1,3 @@
-// Example utility file to demonstrate @utils alias
 export const API_ENDPOINTS = {
   DASHBOARD: '/api/dashboard',
   USERS: '/api/users',

@@ -7,10 +7,8 @@ const TopSelling = ({
 }) => {
   return (
     <div className="top-selling">
-      {/* Header */}
       <div className="top-selling-header">{header}</div>
 
-      {/* Table Header */}
       <div className="top-selling-table-header">
         <div className="name">Name</div>
         <div className="price">Price</div>
@@ -18,10 +16,8 @@ const TopSelling = ({
         <div className="amount">Amount</div>
       </div>
 
-      {/* Horizontal line */}
       <div className="top-selling-line" />
 
-      {/* List */}
       <div className="top-selling-list">
         {listArray.map((item, index) => (
           <div key={index} className="top-selling-row">

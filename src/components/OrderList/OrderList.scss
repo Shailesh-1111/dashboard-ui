@@ -34,7 +34,7 @@
     .order-header,
     .order-row {
       display: grid;
-      grid-template-columns: 40px 120px 180px 180px 200px 150px 120px;
+      grid-template-columns:   4fr 12fr 18fr 18fr 20fr 15fr 12fr;
       align-items: center;
       text-align-last: left;
       padding: 10px;
@@ -51,7 +51,7 @@
       background: var(--bg);
       white-space: nowrap;
       &:hover {
-        background: #f5f5f5;
+        background: var(--hover-bg);
       }
 
       .project{
@@ -90,7 +90,6 @@
     display: flex;
     justify-content: flex-end;
     padding: 16px 0;
-    margin-top: 20px;
     
     .pagination {
       display: flex;
@@ -112,7 +111,7 @@
         transition: all 0.2s ease;
         
         &:hover:not(:disabled) {
-          background-color: rgba(138, 140, 217, 0.1);
+          background-color: var(--hover-bg);
         }
         
         &.active {

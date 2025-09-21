@@ -3,7 +3,6 @@
     width: 100%;
     max-width: 1024px;
     margin: 0 auto;
-    // background: var(--bg-row);
   }
   
   #bar-graph-title {
@@ -96,7 +95,6 @@
     }
   }
 
-  // Hover effects
   #legend > div {
     transition: opacity 0.2s ease;
     cursor: default;

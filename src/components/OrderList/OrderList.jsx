@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import "./OrderList.scss";
 import Icon from "../Icon/Icon";
 import SearchBar from "../SearchBar/SearchBar";
@@ -7,6 +7,10 @@ import { ThemeContext } from "../../context/ThemeContext";
 const OrderList = ({orders = []}) => {
   const {dark} = useContext(ThemeContext);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortedOrders, setSortedOrders] = useState(orders);
+  const [sortAsc, setSortAsc] = useState(true);
+
   const ordersPerPage = 10;
   
   const statusArray = [
@@ -18,14 +22,29 @@ const OrderList = ({orders = []}) => {
   ];
   
   const getStatusInfo = (type) => statusArray.find((s) => s.type === type) || { name: type, color: dark ? "#fff" : "#000" };
+
+
+
+
+useEffect(() => {
+  setCurrentPage(1);
+}, [searchTerm]);
   
-  // Pagination calculations
-  const totalPages = Math.ceil(orders.length / ordersPerPage);
+  const filteredOrders = sortedOrders.filter(order =>
+    order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    order.user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    order.project.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    order.address.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  
+
+
+
+  const totalPages = Math.ceil(filteredOrders.length / ordersPerPage);
   const startIndex = (currentPage - 1) * ordersPerPage;
   const endIndex = startIndex + ordersPerPage;
-  const currentOrders = orders.slice(startIndex, endIndex);
+  const currentOrders = filteredOrders.slice(startIndex, endIndex);
   
-  // Pagination handlers
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -41,27 +60,23 @@ const OrderList = ({orders = []}) => {
       setCurrentPage(currentPage + 1);
     }
   };
+
+
   
-  // Generate page numbers with ellipsis
   const generatePageNumbers = () => {
     const pages = [];
     const maxVisiblePages = 5;
     
     if (totalPages <= maxVisiblePages) {
-      // Show all pages if total is less than or equal to maxVisiblePages
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
       }
     } else {
-      // Show pages with ellipsis logic
       if (currentPage <= 3) {
-        // Show first 3 pages + ellipsis + last page
         pages.push(1, 2, 3, 4, '...', totalPages);
       } else if (currentPage >= totalPages - 2) {
-        // Show first page + ellipsis + last 4 pages
         pages.push(1, '...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
       } else {
-        // Show first page + ellipsis + current-1, current, current+1 + ellipsis + last page
         pages.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
       }
     }
@@ -71,20 +86,37 @@ const OrderList = ({orders = []}) => {
   
   return (
     <div className="order-list">
-      {/* Top row with icons + searchbar */}
       <div className="title">
         Order List
       </div>
       <div className="order-toolbar">
         <div className="icons">
           <Icon name="Add"/>
-          <Icon name="FunnelSimple"/>
+          <Icon
+          name="FunnelSimple"
+          onClick={() => {
+            const sorted = [...sortedOrders].sort((a, b) => 
+              sortAsc 
+                ? a.date.localeCompare(b.date)
+                : b.date.localeCompare(a.date)
+            );
+            setSortedOrders(sorted);
+            setSortAsc(!sortAsc); 
+          }}
+        />
+
           <Icon name="ArrowsDownUp"/>
         </div>
-       <SearchBar hotkey="" height={20}/>
+        <SearchBar
+          hotkey=""
+          height={20}
+          placeholder="Search orders..."
+          value={searchTerm}  
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
       </div>
       
-      {/* Header row */}
       <div className="order-header">
         <div><input type="checkbox" disabled /></div>
         <div>Order ID</div>
@@ -95,7 +127,6 @@ const OrderList = ({orders = []}) => {
         <div>Status</div>
       </div>
       
-      {/* List rows */}
       {currentOrders.map((order, idx) => {
         const statusInfo = getStatusInfo(order.status_type)
         return (
@@ -103,7 +134,7 @@ const OrderList = ({orders = []}) => {
             <div>
               <input
                 type="checkbox"
-                style={{ accentColor: dark ? "#C6C7F8" : "#000" , borderRadius: '50%'}}
+                style={{ accentColor: dark ? "#C6C7F8" : "#000" , borderRadius: '50%', cursor:'pointer'}}
               />
             </div>
             <div>{order.id}</div>
@@ -137,7 +168,6 @@ const OrderList = ({orders = []}) => {
         )
       })}
       
-      {/* Pagination Footer */}
       {totalPages > 1 && (
         <div className="pagination-footer">
           <div className="pagination">
@@ -165,8 +195,7 @@ const OrderList = ({orders = []}) => {
                   onClick={() => handlePageChange(page)}
                   style={{
                     color: dark ? "#fff" : "#000",
-                    backgroundColor: currentPage === page ? (dark ? "#8A8CD9" : "#95A4FC") : "transparent",
-                    fontWeight: currentPage === page ? "bold" : "normal"
+                    backgroundColor: currentPage === page ? (dark ? "#FFFFFF1A" : "#1C1C1C0D") : "transparent",
                   }}
                 >
                   {page}

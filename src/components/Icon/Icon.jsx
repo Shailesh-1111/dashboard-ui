@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
-// Import all icons (light + dark)
 import ArrowLineDownLight from "../../assets/icons/light/ArrowLineDown.svg";
 import ArrowLineDownDark from "../../assets/icons/dark/ArrowLineDown.svg";
 
@@ -87,7 +86,6 @@ import AddLight from "../../assets/icons/light/Add.svg";
 import AddDark from "../../assets/icons/dark/Add.svg";
 
 
-// Registry
 const icons = {
   ArrowLineDown: { light: ArrowLineDownLight, dark: ArrowLineDownDark },
   ArrowLineRight: { light: ArrowLineRightLight, dark: ArrowLineRightDark },
@@ -147,7 +145,6 @@ const Icon = ({
     return null;
   }
 
-  // Apply % if given, else fallback to px width/height
   const style = {
     width: widthPercent ? `${widthPercent}%` : `${width}px`,
     height: heightPercent ? `${heightPercent}%` : `${height}px`,

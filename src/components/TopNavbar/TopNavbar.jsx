@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './TopNavbar.scss';
 import { ThemeContext } from '../../context/ThemeContext';
 import Icon from '../../components/Icon/Icon';
@@ -7,10 +7,10 @@ import SearchBar from '../SearchBar/SearchBar';
 
 const TopNavBar = ({ toggleLeftSidebar, toggleRightSidebar, breadCrumPath, setBreadCrumPath }) => {
   const { dark, toggleDark } = useContext(ThemeContext);
+  const [searchTerm, setSearchTerm] = useState(''); 
 
   return (
     <div className="navbar">
-      {/* Left section */}
       <div className="nav-left">
         <div className="nav-icon" onClick={toggleLeftSidebar}>
           <Icon name="Sidebar" alt="Sidebar" />
@@ -23,9 +23,11 @@ const TopNavBar = ({ toggleLeftSidebar, toggleRightSidebar, breadCrumPath, setBr
         </div>
       </div>
 
-      {/* Right section */}
       <div className="nav-right">
-        <SearchBar/>
+        <SearchBar
+            value={searchTerm}  
+            onChange={(e) => setSearchTerm(e.target.value)}
+        />
         <div className="nav-icon" onClick={toggleDark}>
           <Icon name="Sun" alt="Theme Toggle" />
         </div>

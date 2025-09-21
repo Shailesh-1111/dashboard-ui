@@ -1,6 +1,7 @@
 :root {
     --bg: #ffffff;
     --text: #1C1C1C;
+    --text-reverse: #ffffff;
     --head-text: var(--black-20, rgba(28, 28, 28, 0.2));
     --selected-tab-color: var(--black-5, #1c1c1c22);
     --breadcrumb-text: var(--black-40, #1C1C1C66);
@@ -12,6 +13,8 @@
 
     --border-right: 2px solid #1C1C1C33;
     --border-bottom: 1px solid #1C1C1C0D;
+
+    --hover-bg: #1C1C1C0D;
 
     --circle-inner: #1C1C1C;
     --primary: #1976d2;
@@ -26,6 +29,8 @@
   .dark-theme {
     --bg: #121212;
     --text: #ffffff;
+    --text-reverse: #1C1C1C;
+
     --head-text: var(--black-40, #FFFFFF66);
     --selected-tab-color: var(--black-5, #FFFFFF1A);
     --breadcrumb-text: var(--black-40, #FFFFFF66);
@@ -37,6 +42,9 @@
 
     --border-right: 2px solid #FFFFFF33;
     --border-bottom: 1px solid #FFFFFF1A;
+
+    --hover-bg: #FFFFFF1A;
+
     --circle-inner: #C6C7F8;
     --primary: #90caf9;
     --font-family: 'Inter', sans-serif;
