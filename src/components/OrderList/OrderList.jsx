@@ -141,6 +141,7 @@ useEffect(() => {
         <div>Status</div>
       </div>
       
+      <div className='orders'>
       {currentOrders.map((order, idx) => {
         const statusInfo = getStatusInfo(order.status_type)
         return (
@@ -181,6 +182,7 @@ useEffect(() => {
           </div>
         )
       })}
+      </div>
       
       {totalPages > 1 && (
         <div className="pagination-footer">
