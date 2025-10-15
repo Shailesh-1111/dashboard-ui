@@ -22,7 +22,7 @@ const Home = () =>{
 
             <div className="company">
                 <div>DEVELOPER</div>
-                <div>SHailesh Yadav - IIT BHU</div>
+                <div>Shailesh Yadav - IIT BHU</div>
             </div>
 
 
