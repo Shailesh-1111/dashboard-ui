@@ -13,16 +13,16 @@ const Home = () =>{
             <div className="shadow-green"></div>
             <div className="vector"><img src={Vector} width={540} height={540}/></div>
             <div className="btn" onClick={() => navigate('/dashboard?dash-e-commerce')}>
-                GO TO ASSIGNMENT
+                GO TO DASHBOARD
             </div>
 
             <div className="assignment">
-                UI  DEVELOPER ASSIGNMENT
+                UI  DEVELOPER PAGE
             </div>
 
             <div className="company">
-                <div>COMPANY</div>
-                <div>Juspay Technologies Private Limited</div>
+                <div>DEVELOPER</div>
+                <div>SHailesh Yadav - IIT BHU</div>
             </div>
 
 
